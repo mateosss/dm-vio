@@ -1,0 +1,86 @@
+Command
+# TR1 photocam-imu
+
+build/bin/dmvio_dataset \
+files=$tumvi/dataset-room1_512_16/dso/cam0/images \
+vignette=$tumvi/dataset-room1_512_16/dso/cam0/vignette.png \
+imuFile=$tumvi/dataset-room1_512_16/dso/imu.txt \
+gtFile=$tumvi/dataset-room1_512_16/dso/gt_imu.csv \
+calib=./configs/tumvi_calib/camera02.txt \
+gamma=./configs/tumvi_calib/pcalib.txt \
+imuCalib=./configs/tumvi_calib/camchain.yaml \
+mode=0 \
+use16Bit=1 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results.TR1.photocamimu/ \
+settingsFile=./configs/tumvi.yaml \
+start=2
+
+# TR1 cam-imu working
+
+build/bin/dmvio_dataset \
+files=$tumvi/dataset-room1_512_16/dso/cam0/images \
+imuFile=$tumvi/dataset-room1_512_16/dso/imu.txt \
+gtFile=$tumvi/dataset-room1_512_16/dso/gt_imu.csv \
+calib=./configs/tumvi_calib/camera02.txt \
+imuCalib=./configs/tumvi_calib/camchain.yaml \
+mode=1 \
+use16Bit=1 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results.TR1.camimu/ \
+settingsFile=./configs/tumvi.yaml \
+start=2
+
+# EV101 cam-only working
+
+#build/bin/dmvio_dataset \
+useimu=0 \
+files=$euroc/V1_01_easy/mav0/cam0/data \
+gtFile=$euroc/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv \
+tsFile=configs/euroc_calib/EV101_times.txt \
+calib=configs/euroc_calib/cam0.txt \
+mode=1 \
+use16Bit=0 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results.EV101.camonly/ \
+settingsFile=configs/euroc.yaml \
+start=2
+
+# EV101 cam-imu working
+
+build/bin/dmvio_dataset \
+useimu=1 \
+files=$euroc/V1_01_easy/mav0/cam0/data \
+imuFile=configs/euroc_calib/EV101_imu.txt \
+gtFile=$euroc/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv \
+tsFile=configs/euroc_calib/EV101_times.txt \
+calib=configs/euroc_calib/cam0.txt \
+imuCalib=configs/euroc_calib/imuCalib.yaml \
+mode=1 \
+use16Bit=0 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results.EV101.camimu/ \
+settingsFile=./configs/euroc.yaml \
+start=2
+
+# MOO05 cam-imu working
+
+build/bin/dmvio_dataset \
+useimu=1 \
+files=$msdmo/MOO_others/MOO05_inspect_easy/mav0/cam0/data \
+imuFile=configs/msdmo_calib/MOO05_interpolated_imu.txt \
+gtFile=$msdmo/MOO_others/MOO05_inspect_easy/mav0/gt/data.csv \
+tsFile=configs/msdmo_calib/MOO05_times.txt \
+calib=configs/msdmo_calib/cam0.txt \
+imuCalib=configs/msdmo_calib/imuCalib.yaml \
+mode=1 \
+use16Bit=0 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results.MOO05.camimu/ \
+settingsFile=./configs/tumvi.yaml \
+start=2
