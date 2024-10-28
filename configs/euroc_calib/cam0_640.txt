@@ -1,0 +1,5 @@
+RadTan 458.654 457.296 367.215 248.375 -0.28340811 0.07395907 0.00019359 1.76187114e-05
+752 480
+crop
+640 480
+# see https://github.com/lukasvst/dm-vio-python-tools/issues/8

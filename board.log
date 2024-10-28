@@ -13,7 +13,7 @@ mode=0 \
 use16Bit=1 \
 preset=0 \
 nogui=0 \
-resultsPrefix=results.TR1.photocamimu/ \
+resultsPrefix=results/TR1/ \
 settingsFile=./configs/tumvi.yaml \
 start=2
 
@@ -29,7 +29,7 @@ mode=1 \
 use16Bit=1 \
 preset=0 \
 nogui=0 \
-resultsPrefix=results.TR1.camimu/ \
+resultsPrefix=results/TR1.nonphotometric/ \
 settingsFile=./configs/tumvi.yaml \
 start=2
 
@@ -45,7 +45,7 @@ mode=1 \
 use16Bit=0 \
 preset=0 \
 nogui=0 \
-resultsPrefix=results.EV101.camonly/ \
+resultsPrefix=results/EV101.camonly/ \
 settingsFile=configs/euroc.yaml \
 start=2
 
@@ -63,9 +63,25 @@ mode=1 \
 use16Bit=0 \
 preset=0 \
 nogui=0 \
-resultsPrefix=results.EV101.camimu/ \
+resultsPrefix=results/EV101/ \
 settingsFile=./configs/euroc.yaml \
 start=2
+
+# Why start=2?
+export ds_code=EV101
+export ds_path=$euroc/V1_01_easy
+export ds_calib=euroc_calib
+export ds_gt=state_groundtruth_estimate0
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
 
 # MOO05 cam-imu working
 
@@ -81,6 +97,187 @@ mode=1 \
 use16Bit=0 \
 preset=0 \
 nogui=0 \
-resultsPrefix=results.MOO05.camimu/ \
+resultsPrefix=results/MOO05/ \
 settingsFile=./configs/tumvi.yaml \
 start=2
+
+
+
+
+# -----------------
+
+export ds_code=TR2
+export ds_path=$tumvi/dataset-room2_512_16
+export ds_calib=tumvi_calib
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset \
+files=$ds_path/dso/cam0/images \
+vignette=$ds_path/dso/cam0/vignette.png \
+imuFile=$ds_path/dso/imu.txt \
+gtFile=$ds_path/dso/gt_imu.csv \
+calib=./configs/$ds_calib/camera02.txt \
+gamma=./configs/$ds_calib/pcalib.txt \
+imuCalib=./configs/$ds_calib/camchain.yaml \
+mode=0 \
+use16Bit=1 \
+preset=0 \
+nogui=0 \
+resultsPrefix=results/$ds_code/ \
+settingsFile=./configs/tumvi.yaml \
+start=2
+
+
+# -----------------
+
+# EV101 V1_01_easy
+# Why start=2?
+export ds_code=EV101
+export ds_path=$euroc/V1_01_easy
+export ds_calib=euroc_calib
+export ds_gt=state_groundtruth_estimate0
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+
+# EMH01 MH_01_easy
+# Why start=2?
+export ds_code=EMH01
+export ds_path=$euroc/MH_01_easy
+export ds_calib=euroc_calib
+export ds_gt=state_groundtruth_estimate0
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+
+# EV102 V1_02_medium
+# Why start=2?
+export ds_code=EV102
+export ds_path=$euroc/V1_02_medium
+export ds_calib=euroc_calib
+export ds_gt=state_groundtruth_estimate0
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+
+
+
+
+
+
+# ------------------
+
+
+# MOO01 $msdmo/MOO_others/MOO01_hand_puncher_1
+export ds_code=MOO01
+export ds_path=$msdmo/MOO_others/MOO01_hand_puncher_1
+export ds_calib=msdmo_calib
+export ds_gt=gt
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+# MOO05 $msdmo/MOO_others/MOO05_inspect_easy
+export ds_code=MOO05
+export ds_path=$msdmo/MOO_others/MOO05_inspect_easy
+export ds_calib=msdmo_calib
+export ds_gt=gt
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+# MOO06 $msdmo/MOO_others/MOO06_inspect_hard
+export ds_code=MOO06
+export ds_path=$msdmo/MOO_others/MOO06_inspect_hard
+export ds_calib=msdmo_calib
+export ds_gt=gt
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+# MOO08 $msdmo/MOO_others/MOO08_mapping_hard
+export ds_code=MOO08
+export ds_path=$msdmo/MOO_others/MOO08_mapping_hard
+export ds_calib=msdmo_calib
+export ds_gt=gt
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+# MOO11 $msdmo/MOO_others/MOO11_short_3_backandforth
+export ds_code=MOO11
+export ds_path=$msdmo/MOO_others/MOO11_short_3_backandforth
+export ds_calib=msdmo_calib
+export ds_gt=gt
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+  files=$ds_path/mav0/cam0/data \
+  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  gtFile=$ds_path/mav0/$ds_gt/data.csv \
+  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  calib=configs/$ds_calib/cam0.txt \
+  imuCalib=configs/$ds_calib/imuCalib.yaml \
+  settingsFile=./configs/euroc.yaml \
+  resultsPrefix=results/$ds_code/
+
+
+
+# -------------------------
