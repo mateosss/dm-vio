@@ -212,21 +212,25 @@ build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
 
 
 # MOO05 $msdmo/MOO_others/MOO05_inspect_easy
+export ds_name=MOO05_inspect_easy
+echo ">>> ds_name=$ds_name"
 export ds_code=MOO05
 export ds_path=$msdmo/MOO_others/MOO05_inspect_easy
 export ds_calib=msdmo_calib
 export ds_gt=gt
-mkdir -p results/$ds_code; rm -rf results/$ds_code/*;
-build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=0 start=2 \
+7z x $ds_path.zip > /dev/null
+mkdir -p results/$ds_code; rm -rf results/$ds_code/*; mkdir -p results/$ds_code/input
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files $ds_path results/$ds_code/input
+build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 start=0 \
   files=$ds_path/mav0/cam0/data \
-  imuFile=configs/$ds_calib/$ds_code/imu.txt \
+  imuFile=results/$ds_code/input/imu.txt \
   gtFile=$ds_path/mav0/$ds_gt/data.csv \
-  tsFile=configs/$ds_calib/$ds_code/times.txt \
+  tsFile=results/$ds_code/input/times.txt \
   calib=configs/$ds_calib/cam0.txt \
   imuCalib=configs/$ds_calib/imuCalib.yaml \
-  settingsFile=./configs/euroc.yaml \
+  settingsFile=./configs/tumvi.yaml \
   resultsPrefix=results/$ds_code/
-
+rm -rf $ds_name
 
 # MOO06 $msdmo/MOO_others/MOO06_inspect_hard
 export ds_code=MOO06
