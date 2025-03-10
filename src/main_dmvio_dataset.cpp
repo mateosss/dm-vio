@@ -97,6 +97,9 @@ void exitThread()
 void run(ImageFolderReader* reader, IOWrap::PangolinDSOViewer* viewer)
 {
 
+    printf(">>> Create in.csv\n");
+    auto incsv = std::ofstream{"in.csv"};
+    incsv << "#t_ns,in_ts" << std::endl;
     if(setting_photometricCalibration > 0 && reader->getPhotometricGamma() == 0)
     {
         printf("ERROR: dont't have photometric calibation. Need to use commandline options mode=1 or mode=2 ");
@@ -245,6 +248,10 @@ void run(ImageFolderReader* reader, IOWrap::PangolinDSOViewer* viewer)
                 skippedIMUData.clear();
                 imuDataSkipped = false;
             }
+
+            int64_t t_ns = img->timestamp * 1e9;
+            int64_t in_ns = std::chrono::steady_clock::now().time_since_epoch().count();
+            incsv << t_ns << "," << in_ns << std::endl;
             fullSystem->addActiveFrame(img, i, imuData.get(), (gtDataThere && found) ? &data : 0);
             if(gtDataThere && found && !disableAllDisplay)
             {
@@ -344,6 +351,9 @@ void run(ImageFolderReader* reader, IOWrap::PangolinDSOViewer* viewer)
     delete reader;
 
     printf("EXIT NOW!\n");
+    printf(">>> Close in.csv\n");
+    incsv.close();
+
 }
 
 int main(int argc, char** argv)

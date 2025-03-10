@@ -55,6 +55,7 @@
 #include "IOWrapper/Output3DWrapper.h"
 #include "util/ImageAndExposure.h"
 #include <cmath>
+#include <fstream>
 
 #include "util/TimeMeasurement.h"
 #include "GTSAMIntegration/ExtUtils.h"
@@ -184,6 +185,9 @@ FullSystem::FullSystem(bool linearizeOperationPassed, const dmvio::IMUCalibratio
 	maxIdJetVisDebug = -1;
 	minIdJetVisTracker = -1;
 	maxIdJetVisTracker = -1;
+
+	outcsv = std::ofstream{"out.csv"};
+	outcsv << "#t_ns,out_ts" << std::endl;
 }
 
 FullSystem::~FullSystem()
@@ -217,6 +221,8 @@ FullSystem::~FullSystem()
 	delete coarseInitializer;
 	delete pixelSelector;
 	delete ef;
+	printf(">>> Close out.csv\n");
+	outcsv.close();
 }
 
 void FullSystem::setOriginalCalib(const VecXf &originalCalib, int originalW, int originalH)
@@ -1118,6 +1124,9 @@ void FullSystem::addActiveFrame(ImageAndExposure* image, int id, dmvio::IMUData*
         timeLastStuff.end();
         coarseTrackingTime.end();
 		deliverTrackedFrame(fh, needToMakeKF);
+        int64_t t_ns = image->timestamp * 1e9;
+        int64_t out_ns = std::chrono::steady_clock::now().time_since_epoch().count();
+        outcsv << t_ns << "," << out_ns << std::endl;
 		return;
 	}
 }
