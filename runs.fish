@@ -114,6 +114,7 @@ echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmg_cam_calib imuCalib=$msdmg_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsC/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsC/$ds_code/
 rm -rf MGO15_seated_screen MGO15_seated_screen_exists
 
+sendemail.sh '[1/4] DM-VIO MGO Finished' 'More remain'
 
 while not test -e MIO01_hand_puncher_1_exists; sleep 1; echo "waiting for MIO01_hand_puncher_1_exists"; end
 export ds_code=MIO01 ds=MIO01_hand_puncher_1; mkdir -p resultsA/$ds_code resultsB/$ds_code resultsC/$ds_code
@@ -226,6 +227,8 @@ echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmi_cam_calib imuCalib=$msdmi_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsB/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsB/$ds_code/
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmi_cam_calib imuCalib=$msdmi_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsC/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsC/$ds_code/
 rm -rf MIO16_moving_screens_person_props MIO16_moving_screens_person_props_exists
+
+sendemail.sh '[2/4] DM-VIO MIO Finished' 'More remain'
 
 while not test -e MIPB01_beatsaber_100bills_360_normal_exists; sleep 1; echo "waiting for MIPB01_beatsaber_100bills_360_normal_exists"; end
 export ds_code=MIPB01 ds=MIPB01_beatsaber_100bills_360_normal; mkdir -p resultsA/$ds_code resultsB/$ds_code resultsC/$ds_code
@@ -346,6 +349,8 @@ echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmi_cam_calib imuCalib=$msdmi_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsC/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsC/$ds_code/
 rm -rf MIPT03_thrillofthefight_fight_2 MIPT03_thrillofthefight_fight_2_exists
 
+sendemail.sh '[3/4] DM-VIO MIP Finished' 'More remain'
+
 while not test -e MOO01_hand_puncher_1_exists; sleep 1; echo "waiting for MOO01_hand_puncher_1_exists"; end
 export ds_code=MOO01 ds=MOO01_hand_puncher_1; mkdir -p resultsA/$ds_code resultsB/$ds_code resultsC/$ds_code
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmo_cam_calib imuCalib=$msdmo_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsA/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsA/$ds_code/
@@ -458,5 +463,6 @@ echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit
 echo ">>> Running " $ds_code; ./build/bin/dmvio_dataset useimu=1 mode=1 use16Bit=0 preset=0 nogui=1 nolog=1 quiet=1 start=10 files=$ds/mav0/cam0/data imuFile=$ds/dmviodata/imu.txt gtFile=$ds/mav0/gt/data.csv tsFile=$ds/dmviodata/times.txt calib=$msdmo_cam_calib imuCalib=$msdmo_imu_calib settingsFile=./configs/tumvi.yaml resultsPrefix=resultsC/$ds_code/ 2>&1 | tee output.log; mv in.csv out.csv output.log resultsC/$ds_code/
 rm -rf MOO16_still MOO16_still_exists
 
+sendemail.sh '[4/4] DM-VIO runs have finished' 'All done'
 
 echo ">>> Done with all runs"; uptime

@@ -23,6 +23,111 @@ function wait_space_for_file
            end
 end
 
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO01_low_light.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO01_low_light/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO01_low_light MGO01_low_light/dmviodata
+touch MGO01_low_light_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO02_hand_puncher.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO02_hand_puncher/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO02_hand_puncher MGO02_hand_puncher/dmviodata
+touch MGO02_hand_puncher_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO03_hand_shooter_easy.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO03_hand_shooter_easy/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO03_hand_shooter_easy MGO03_hand_shooter_easy/dmviodata
+touch MGO03_hand_shooter_easy_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO04_hand_shooter_hard.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO04_hand_shooter_hard/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO04_hand_shooter_hard MGO04_hand_shooter_hard/dmviodata
+touch MGO04_hand_shooter_hard_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO05_inspect_easy.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO05_inspect_easy/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO05_inspect_easy MGO05_inspect_easy/dmviodata
+touch MGO05_inspect_easy_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO06_inspect_hard.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO06_inspect_hard/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO06_inspect_hard MGO06_inspect_hard/dmviodata
+touch MGO06_inspect_hard_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO07_mapping_easy.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO07_mapping_easy/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO07_mapping_easy MGO07_mapping_easy/dmviodata
+touch MGO07_mapping_easy_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO08_mapping_hard.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO08_mapping_hard/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO08_mapping_hard MGO08_mapping_hard/dmviodata
+touch MGO08_mapping_hard_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO09_short_1_updown.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO09_short_1_updown/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO09_short_1_updown MGO09_short_1_updown/dmviodata
+touch MGO09_short_1_updown_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO10_short_2_panorama.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO10_short_2_panorama/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO10_short_2_panorama MGO10_short_2_panorama/dmviodata
+touch MGO10_short_2_panorama_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO11_short_3_backandforth.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO11_short_3_backandforth/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO11_short_3_backandforth MGO11_short_3_backandforth/dmviodata
+touch MGO11_short_3_backandforth_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO12_freemovement_long_session.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO12_freemovement_long_session/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO12_freemovement_long_session MGO12_freemovement_long_session/dmviodata
+touch MGO12_freemovement_long_session_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO13_sudden_movements.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO13_sudden_movements/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO13_sudden_movements MGO13_sudden_movements/dmviodata
+touch MGO13_sudden_movements_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO14_flickering_light.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO14_flickering_light/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO14_flickering_light MGO14_flickering_light/dmviodata
+touch MGO14_flickering_light_exists
+
+export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO15_seated_screen.zip
+wait_space_for_file $filename
+7z x -y $filename
+mkdir -p MGO15_seated_screen/dmviodata
+$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO15_seated_screen MGO15_seated_screen/dmviodata
+touch MGO15_seated_screen_exists
+
 export filename=$msd/M_monado_datasets/MI_valve_index/MIO_others/MIO01_hand_puncher_1.zip
 wait_space_for_file $filename
 7z x -y $filename
@@ -253,111 +358,6 @@ wait_space_for_file $filename
 mkdir -p MIPT03_thrillofthefight_fight_2/dmviodata
 $xrtmet/euroc/dmvio_ops.py euroc2dm_files MIPT03_thrillofthefight_fight_2 MIPT03_thrillofthefight_fight_2/dmviodata
 touch MIPT03_thrillofthefight_fight_2_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO01_low_light.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO01_low_light/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO01_low_light MGO01_low_light/dmviodata
-touch MGO01_low_light_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO02_hand_puncher.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO02_hand_puncher/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO02_hand_puncher MGO02_hand_puncher/dmviodata
-touch MGO02_hand_puncher_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO03_hand_shooter_easy.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO03_hand_shooter_easy/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO03_hand_shooter_easy MGO03_hand_shooter_easy/dmviodata
-touch MGO03_hand_shooter_easy_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO04_hand_shooter_hard.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO04_hand_shooter_hard/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO04_hand_shooter_hard MGO04_hand_shooter_hard/dmviodata
-touch MGO04_hand_shooter_hard_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO05_inspect_easy.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO05_inspect_easy/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO05_inspect_easy MGO05_inspect_easy/dmviodata
-touch MGO05_inspect_easy_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO06_inspect_hard.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO06_inspect_hard/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO06_inspect_hard MGO06_inspect_hard/dmviodata
-touch MGO06_inspect_hard_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO07_mapping_easy.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO07_mapping_easy/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO07_mapping_easy MGO07_mapping_easy/dmviodata
-touch MGO07_mapping_easy_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO08_mapping_hard.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO08_mapping_hard/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO08_mapping_hard MGO08_mapping_hard/dmviodata
-touch MGO08_mapping_hard_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO09_short_1_updown.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO09_short_1_updown/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO09_short_1_updown MGO09_short_1_updown/dmviodata
-touch MGO09_short_1_updown_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO10_short_2_panorama.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO10_short_2_panorama/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO10_short_2_panorama MGO10_short_2_panorama/dmviodata
-touch MGO10_short_2_panorama_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO11_short_3_backandforth.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO11_short_3_backandforth/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO11_short_3_backandforth MGO11_short_3_backandforth/dmviodata
-touch MGO11_short_3_backandforth_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO12_freemovement_long_session.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO12_freemovement_long_session/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO12_freemovement_long_session MGO12_freemovement_long_session/dmviodata
-touch MGO12_freemovement_long_session_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO13_sudden_movements.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO13_sudden_movements/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO13_sudden_movements MGO13_sudden_movements/dmviodata
-touch MGO13_sudden_movements_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO14_flickering_light.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO14_flickering_light/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO14_flickering_light MGO14_flickering_light/dmviodata
-touch MGO14_flickering_light_exists
-
-export filename=$msd/M_monado_datasets/MG_reverb_g2/MGO_others/MGO15_seated_screen.zip
-wait_space_for_file $filename
-7z x -y $filename
-mkdir -p MGO15_seated_screen/dmviodata
-$xrtmet/euroc/dmvio_ops.py euroc2dm_files MGO15_seated_screen MGO15_seated_screen/dmviodata
-touch MGO15_seated_screen_exists
 
 export filename=$msd/M_monado_datasets/MO_odyssey_plus/MOO_others/MOO01_hand_puncher_1.zip
 wait_space_for_file $filename
