@@ -336,6 +336,8 @@ private:
 	int lastRefStopID;
 
 
+	std::ofstream outcsv;
+	std::ofstream incsv;
 	bool secondKeyframeDone;
 };
 }
