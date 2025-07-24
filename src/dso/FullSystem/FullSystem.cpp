@@ -188,6 +188,9 @@ FullSystem::FullSystem(bool linearizeOperationPassed, const dmvio::IMUCalibratio
 
 	outcsv = std::ofstream{"out.csv"};
 	outcsv << "#t_ns,out_ts" << std::endl;
+	rtcsv = std::ofstream{"result.rt.csv"};
+	rtcsv << "#timestamp,tx,ty,tz,qw,qx,qy,qz" << std::endl;
+	rtcsv << std::fixed << std::setprecision(9);
 }
 
 FullSystem::~FullSystem()
@@ -223,6 +226,8 @@ FullSystem::~FullSystem()
 	delete ef;
 	printf(">>> Close out.csv\n");
 	outcsv.close();
+	printf(">>> Close result.rt.csv\n");
+	rtcsv.close();
 }
 
 void FullSystem::setOriginalCalib(const VecXf &originalCalib, int originalW, int originalH)
@@ -1127,6 +1132,12 @@ void FullSystem::addActiveFrame(ImageAndExposure* image, int id, dmvio::IMUData*
         int64_t t_ns = image->timestamp * 1e9;
         int64_t out_ns = std::chrono::steady_clock::now().time_since_epoch().count();
         outcsv << t_ns << "," << out_ns << std::endl;
+
+        Eigen::Vector3d p = fh->shell->camToWorld.translation();
+        Eigen::Quaterniond q = fh->shell->camToWorld.unit_quaternion();
+        rtcsv << t_ns << "," << p.x() << "," << p.y() << "," << p.z() << ","
+              << q.w() << "," << q.x() << "," << q.y() << "," << q.z() << std::endl;
+
 		return;
 	}
 }

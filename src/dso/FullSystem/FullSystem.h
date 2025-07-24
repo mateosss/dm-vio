@@ -338,6 +338,7 @@ private:
 
 	std::ofstream outcsv;
 	std::ofstream incsv;
+	std::ofstream rtcsv{"result.rt.csv"};
 	bool secondKeyframeDone;
 };
 }
